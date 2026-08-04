@@ -14,12 +14,10 @@ jobs:
     permissions:
       contents: read
     steps:
-      # 1. Checkout limpio sin pedir submódulos
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: false
 
-      # 2. Instalación de Foundry
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
 
