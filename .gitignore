@@ -1,0 +1,10 @@
+# Foundry & Dependencies
+out/
+cache/
+lib/
+
+# Environment Variables (Secrets)
+.env
+
+# Misc
+.DS_Store
