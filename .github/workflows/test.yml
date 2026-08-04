@@ -14,11 +14,12 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v6
+      # 1. Checkout limpio sin pedir submódulos
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
-          submodules: recursive
 
+      # 2. Instalación de Foundry
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
 
@@ -30,8 +31,6 @@ jobs:
 
       - name: Run Forge build
         run: forge build --sizes
-
-      - uses: actions/checkout@v4
 
       - name: Run Forge tests
         run: forge test -vvv
