@@ -31,5 +31,9 @@ jobs:
       - name: Run Forge build
         run: forge build --sizes
 
+      - uses: actions/checkout@v4
+       with:
+         submodules: recursive
+
       - name: Run Forge tests
         run: forge test -vvv
