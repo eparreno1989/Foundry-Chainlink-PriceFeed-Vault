@@ -8,7 +8,7 @@ import {MockV3Aggregator} from "./mock/MockV3Aggregator.sol";
 contract MockVaultConverterTest is Test {
     VaultConverter internal vault;
     MockV3Aggregator internal mockFeed;
-    
+
     address internal owner = address(0x123);
     address internal user = address(0x456);
 

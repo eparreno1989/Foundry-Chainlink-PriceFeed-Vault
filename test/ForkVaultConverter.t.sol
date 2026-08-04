@@ -6,7 +6,7 @@ import {VaultConverter} from "../src/VaultConverter.sol";
 
 contract ForkVaultConverterTest is Test {
     VaultConverter internal vault;
-    
+
     // Mainnet ETH/USD Price Feed Address
     address public constant MAINNET_ETH_USD_FEED = 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419;
     address internal owner = address(0x123);

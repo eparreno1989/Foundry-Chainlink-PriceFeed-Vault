@@ -51,7 +51,7 @@ contract VaultConverter {
 
     /// @notice Retrieves the latest ETH/USD price from Chainlink Price Feed (18 decimals precision)
     function getCurrentPrice() public view returns (uint256) {
-        (, int256 price, , , ) = i_priceFeed.latestRoundData();
+        (, int256 price,,,) = i_priceFeed.latestRoundData();
         if (price <= 0) revert VaultConverter__InvalidPrice();
 
         // Chainlink ETH/USD feed returns 8 decimals; we scale it up to 18 decimals
@@ -68,7 +68,7 @@ contract VaultConverter {
     /// @notice Withdraws the total ETH balance of the vault to the contract owner
     function withdraw() external onlyOwner returns (bool) {
         uint256 balance = address(this).balance;
-        (bool sent, ) = i_owner.call{value: balance}("");
+        (bool sent,) = i_owner.call{value: balance}("");
         if (!sent) revert VaultConverter__TransferFailed();
 
         emit Withdrawn(i_owner, balance);
