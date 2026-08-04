@@ -1,7 +1,6 @@
 # Foundry & Dependencies
 out/
 cache/
-lib/
 
 # Environment Variables (Secrets)
 .env
