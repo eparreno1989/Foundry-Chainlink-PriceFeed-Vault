@@ -13,6 +13,11 @@ contract ForkVaultConverterTest is Test {
     address internal user = address(0x456);
 
     function setUp() public {
+        
+        // Read RPC URL from environment variables and create/select Mainnet fork
+        string memory mainnetRpcUrl = vm.envString("MAINNET_RPC_URL");
+        vm.createSelectFork(mainnetRpcUrl);
+        
         // Deploy vault injecting real Mainnet Price Feed address
         vm.prank(owner);
         vault = new VaultConverter(MAINNET_ETH_USD_FEED);
